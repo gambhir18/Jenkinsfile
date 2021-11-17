@@ -5,6 +5,12 @@ pipeline {
     }
 
     stages {
+        stage('Git Checkout') {
+            steps {
+                echo 'Git Checkout'
+                git branch: 'main', credentialsId: 'Github', url: 'https://github.com/gambhir18/terraform-repo.git'
+            }
+        }
         stage('Terraform Init') {
             steps {
                 echo 'Initialize Terraform'
